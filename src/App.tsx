@@ -71,10 +71,10 @@ export default function App() {
           </div>
           
           <div className="hidden md:flex items-center space-x-10 text-sm font-medium tracking-wide text-stone-600">
-            <a href="#" className="hover:text-red-900 transition-colors">{t.menu}</a>
-            <a href="#" className="hover:text-red-900 transition-colors">{t.about}</a>
-            <a href="#" className="hover:text-red-900 transition-colors">{t.find}</a>
-            <a href="#" className="hover:text-red-900 transition-colors">{t.contact}</a>
+            <a href="#full-menu" className="hover:text-red-900 transition-colors">{t.menu}</a>
+            <a href="#about" className="hover:text-red-900 transition-colors">{t.about}</a>
+            <a href="#contact" className="hover:text-red-900 transition-colors">{t.find}</a>
+            <a href="#contact" className="hover:text-red-900 transition-colors">{t.contact}</a>
           </div>
           
           <div className="hidden md:flex items-center gap-6">
@@ -89,23 +89,12 @@ export default function App() {
                 <button onClick={() => setLang('ar')} className="w-full text-left px-4 py-2 text-sm hover:bg-stone-50">العربية</button>
               </div>
             </div>
-            <button className="bg-red-900 text-white px-8 py-3 rounded-full font-semibold text-sm hover:bg-red-950 transition-colors shadow-lg shadow-red-900/20">
+            <a href="#book" className="bg-red-900 text-white px-8 py-3 rounded-full font-semibold text-sm hover:bg-red-950 transition-colors shadow-lg shadow-red-900/20">
               {t.book}
-            </button>
+            </a>
           </div>
 
           <div className="md:hidden flex items-center gap-4">
-            <div className="relative group">
-              <button className="flex items-center gap-1 text-stone-600">
-                <Globe size={20} />
-                <span className="uppercase text-xs font-bold">{lang}</span>
-              </button>
-              <div className="absolute top-full right-0 mt-2 bg-white rounded-lg shadow-lg border border-stone-100 py-2 hidden group-hover:block min-w-[100px]">
-                <button onClick={() => setLang('en')} className="w-full text-left px-4 py-2 text-sm hover:bg-stone-50">English</button>
-                <button onClick={() => setLang('fr')} className="w-full text-left px-4 py-2 text-sm hover:bg-stone-50">Français</button>
-                <button onClick={() => setLang('ar')} className="w-full text-left px-4 py-2 text-sm hover:bg-stone-50">العربية</button>
-              </div>
-            </div>
             <button className="text-stone-900" onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
               {mobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
             </button>
@@ -116,13 +105,23 @@ export default function App() {
       {/* Mobile Menu */}
       {mobileMenuOpen && (
         <div className="fixed inset-0 z-40 bg-white pt-24 px-6 flex flex-col gap-6 md:hidden">
-          <a href="#" className="text-2xl font-serif text-stone-900 border-b border-stone-100 pb-4">{t.menu}</a>
-          <a href="#" className="text-2xl font-serif text-stone-900 border-b border-stone-100 pb-4">{t.about}</a>
-          <a href="#" className="text-2xl font-serif text-stone-900 border-b border-stone-100 pb-4">{t.find}</a>
-          <a href="#" className="text-2xl font-serif text-stone-900 border-b border-stone-100 pb-4">{t.contact}</a>
-          <button className="bg-red-900 text-white px-8 py-4 rounded-full font-semibold text-lg mt-4 shadow-lg shadow-red-900/20">
+          <a href="#full-menu" onClick={() => setMobileMenuOpen(false)} className="text-2xl font-serif text-stone-900 border-b border-stone-100 pb-4">{t.menu}</a>
+          <a href="#about" onClick={() => setMobileMenuOpen(false)} className="text-2xl font-serif text-stone-900 border-b border-stone-100 pb-4">{t.about}</a>
+          <a href="#contact" onClick={() => setMobileMenuOpen(false)} className="text-2xl font-serif text-stone-900 border-b border-stone-100 pb-4">{t.find}</a>
+          <a href="#contact" onClick={() => setMobileMenuOpen(false)} className="text-2xl font-serif text-stone-900 border-b border-stone-100 pb-4">{t.contact}</a>
+          
+          <div className="mt-4">
+            <p className="text-sm font-bold text-stone-400 uppercase tracking-wider mb-3">Language / Langue / اللغة</p>
+            <div className="flex gap-3">
+              <button onClick={() => { setLang('en'); setMobileMenuOpen(false); }} className={`flex-1 py-3 rounded-xl font-bold transition-colors ${lang === 'en' ? 'bg-red-900 text-white' : 'bg-stone-100 text-stone-600'}`}>EN</button>
+              <button onClick={() => { setLang('fr'); setMobileMenuOpen(false); }} className={`flex-1 py-3 rounded-xl font-bold transition-colors ${lang === 'fr' ? 'bg-red-900 text-white' : 'bg-stone-100 text-stone-600'}`}>FR</button>
+              <button onClick={() => { setLang('ar'); setMobileMenuOpen(false); }} className={`flex-1 py-3 rounded-xl font-bold transition-colors ${lang === 'ar' ? 'bg-red-900 text-white' : 'bg-stone-100 text-stone-600'}`}>AR</button>
+            </div>
+          </div>
+
+          <a href="#book" onClick={() => setMobileMenuOpen(false)} className="bg-red-900 text-white px-8 py-4 rounded-full font-semibold text-lg mt-auto mb-8 shadow-lg shadow-red-900/20 text-center">
             {t.book}
-          </button>
+          </a>
         </div>
       )}
 
@@ -176,17 +175,18 @@ export default function App() {
       </section>
 
       {/* Our Story */}
-      <section className="py-24 bg-white px-6 md:px-16 lg:px-24">
+      <section id="about" className="py-24 bg-white px-6 md:px-16 lg:px-24">
         <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-16 items-center">
-          <div className="relative h-[500px] w-full order-2 md:order-1">
-            <img 
-              src="https://i.ibb.co/YF6H6pY0/batisii.png" 
-              alt="Coffee and Croissant" 
-              className="w-full h-full object-cover rounded-[2rem] shadow-xl"
-            />
-            <div className="absolute -bottom-8 -right-8 bg-red-900 text-white p-8 rounded-[2rem] shadow-xl hidden md:block">
-              <p className="text-4xl font-serif font-bold mb-2">{t.years}</p>
-              <p className="text-sm font-medium tracking-wider uppercase opacity-90 whitespace-pre-line">{t.yearsText}</p>
+          <div className="grid grid-cols-2 gap-4 order-2 md:order-1">
+            <div className="space-y-4">
+              <img src="https://i.ibb.co/XrGXHj4K/PA.jpg" alt="Gallery" className="w-full h-48 md:h-64 object-cover rounded-2xl shadow-md hover:scale-[1.02] transition-transform" />
+              <img src="https://i.ibb.co/DPPJmJKV/7lwia.jpg" alt="Gallery" className="w-full h-32 md:h-48 object-cover rounded-2xl shadow-md hover:scale-[1.02] transition-transform" />
+              <img src="https://i.ibb.co/Fkb0PKyC/3DH.jpg" alt="Gallery" className="w-full h-40 md:h-56 object-cover rounded-2xl shadow-md hover:scale-[1.02] transition-transform" />
+            </div>
+            <div className="space-y-4 pt-8">
+              <img src="https://i.ibb.co/4HrgGkx/CHESS.jpg" alt="Gallery" className="w-full h-32 md:h-48 object-cover rounded-2xl shadow-md hover:scale-[1.02] transition-transform" />
+              <img src="https://i.ibb.co/d4yNRxNj/KIWI.jpg" alt="Gallery" className="w-full h-48 md:h-64 object-cover rounded-2xl shadow-md hover:scale-[1.02] transition-transform" />
+              <img src="https://i.ibb.co/CpRFr0Xf/NIC.jpg" alt="Gallery" className="w-full h-40 md:h-56 object-cover rounded-2xl shadow-md hover:scale-[1.02] transition-transform" />
             </div>
           </div>
           <div className="space-y-8 order-1 md:order-2">
@@ -242,7 +242,7 @@ export default function App() {
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
             {[
               { img: "https://i.ibb.co/DPBSTgz3/smm.jpg", title: t.sig1 },
-              { img: "https://i.ibb.co/WWg2NPyN/cafe.png", title: t.sig2 },
+              { img: "https://i.ibb.co/pvWFYqLJ/CAFE.jpg", title: t.sig2 },
               { img: "https://i.ibb.co/nssXt4MY/PIZZA.jpg", title: t.sig3 },
               { img: "https://i.ibb.co/PKNYgMc/nice.jpg", title: t.sig4 }
             ].map((item, i) => (
@@ -443,7 +443,7 @@ export default function App() {
       </section>
 
       {/* Booking Form */}
-      <section className="py-24 bg-white px-6 md:px-16 lg:px-24">
+      <section id="book" className="py-24 bg-white px-6 md:px-16 lg:px-24">
         <div className="max-w-5xl mx-auto bg-stone-50 rounded-[2rem] shadow-xl shadow-stone-900/5 border border-stone-200/50 overflow-hidden flex flex-col md:flex-row">
           <div className="md:w-2/5 bg-red-900 text-white p-10 md:p-12 flex flex-col justify-between">
             <div>
@@ -503,7 +503,7 @@ export default function App() {
       </section>
 
       {/* Footer */}
-      <footer className="bg-stone-900 text-stone-300 pt-20 pb-10 px-6 md:px-16 lg:px-24">
+      <footer id="contact" className="bg-stone-900 text-stone-300 pt-20 pb-10 px-6 md:px-16 lg:px-24">
         <div className="max-w-7xl mx-auto">
           <div className="grid md:grid-cols-4 gap-12 mb-16">
             <div className="md:col-span-2 space-y-6">
