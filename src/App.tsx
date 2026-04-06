@@ -176,17 +176,17 @@ export default function App() {
 
       {/* Our Story */}
       <section id="about" className="py-24 bg-white px-6 md:px-16 lg:px-24">
-        <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-16 items-center">
-          <div className="grid grid-cols-2 gap-4 order-2 md:order-1">
-            <div className="space-y-4">
-              <img src="https://i.ibb.co/XrGXHj4K/PA.jpg" alt="Gallery" className="w-full h-48 md:h-64 object-cover rounded-2xl shadow-md hover:scale-[1.02] transition-transform" />
-              <img src="https://i.ibb.co/DPPJmJKV/7lwia.jpg" alt="Gallery" className="w-full h-32 md:h-48 object-cover rounded-2xl shadow-md hover:scale-[1.02] transition-transform" />
-              <img src="https://i.ibb.co/Fkb0PKyC/3DH.jpg" alt="Gallery" className="w-full h-40 md:h-56 object-cover rounded-2xl shadow-md hover:scale-[1.02] transition-transform" />
+        <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-12 md:gap-16 items-center">
+          <div className="grid grid-cols-2 gap-4 md:gap-6 order-2 md:order-1">
+            <div className="space-y-4 md:space-y-6">
+              <img src="https://i.ibb.co/wFX9NRFc/xx.jpg" alt="Gallery" className="w-full h-56 md:h-72 object-cover rounded-2xl shadow-md hover:scale-[1.02] transition-transform" />
+              <img src="https://i.ibb.co/DPPJmJKV/7lwia.jpg" alt="Gallery" className="w-full h-40 md:h-56 object-cover rounded-2xl shadow-md hover:scale-[1.02] transition-transform" />
+              <img src="https://i.ibb.co/nsVmc59b/cavv.jpg" alt="Gallery" className="w-full h-48 md:h-64 object-cover rounded-2xl shadow-md hover:scale-[1.02] transition-transform" />
             </div>
-            <div className="space-y-4 pt-8">
-              <img src="https://i.ibb.co/4HrgGkx/CHESS.jpg" alt="Gallery" className="w-full h-32 md:h-48 object-cover rounded-2xl shadow-md hover:scale-[1.02] transition-transform" />
-              <img src="https://i.ibb.co/d4yNRxNj/KIWI.jpg" alt="Gallery" className="w-full h-48 md:h-64 object-cover rounded-2xl shadow-md hover:scale-[1.02] transition-transform" />
-              <img src="https://i.ibb.co/CpRFr0Xf/NIC.jpg" alt="Gallery" className="w-full h-40 md:h-56 object-cover rounded-2xl shadow-md hover:scale-[1.02] transition-transform" />
+            <div className="space-y-4 md:space-y-6 pt-8 md:pt-12">
+              <img src="https://i.ibb.co/4nXvsRRS/tacos.jpg" alt="Gallery" className="w-full h-40 md:h-56 object-cover rounded-2xl shadow-md hover:scale-[1.02] transition-transform" />
+              <img src="https://i.ibb.co/d4yNRxNj/KIWI.jpg" alt="Gallery" className="w-full h-56 md:h-72 object-cover rounded-2xl shadow-md hover:scale-[1.02] transition-transform" />
+              <img src="https://i.ibb.co/6J8Js5n1/panini.jpg" alt="Gallery" className="w-full h-48 md:h-64 object-cover rounded-2xl shadow-md hover:scale-[1.02] transition-transform" />
             </div>
           </div>
           <div className="space-y-8 order-1 md:order-2">
@@ -242,7 +242,7 @@ export default function App() {
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
             {[
               { img: "https://i.ibb.co/DPBSTgz3/smm.jpg", title: t.sig1 },
-              { img: "https://i.ibb.co/pvWFYqLJ/CAFE.jpg", title: t.sig2 },
+              { img: "https://i.ibb.co/2YWGpDQ9/ccc.jpg", title: t.sig2 },
               { img: "https://i.ibb.co/nssXt4MY/PIZZA.jpg", title: t.sig3 },
               { img: "https://i.ibb.co/PKNYgMc/nice.jpg", title: t.sig4 }
             ].map((item, i) => (
