@@ -63,11 +63,14 @@ export default function App() {
 
   return (
     <div className={`min-h-screen bg-stone-50 text-stone-900 ${isRtl ? 'font-sans' : 'font-sans'}`}>
-      {/* Navbar */}
-      <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? 'bg-white/95 backdrop-blur-md shadow-sm py-4' : 'bg-transparent py-6'} px-6 md:px-16 lg:px-24`}>
+      {/* Header */}
+      <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? 'bg-white/95 backdrop-blur-md shadow-sm py-4' : 'bg-transparent py-6'} px-6 md:px-16 lg:px-24`}>
         <div className="max-w-7xl mx-auto flex items-center justify-between">
           <div className="flex items-center gap-2">
-            <img src="https://i.ibb.co/CGFVrpM/azrou-city-logo.jpg" alt="Azrou City Logo" className="h-12 w-auto rounded-md" />
+            <h1 className="m-0 p-0 flex items-center">
+              <img src="https://i.ibb.co/CGFVrpM/azrou-city-logo.jpg" alt="Azrou City Restaurant, Pâtisserie & Café Logo" className="h-12 w-auto rounded-md" />
+              <span className="sr-only">Azrou City | Restaurant, Pâtisserie & Café</span>
+            </h1>
           </div>
           
           <div className="hidden md:flex items-center space-x-10 text-sm font-medium tracking-wide text-stone-600">
@@ -100,7 +103,7 @@ export default function App() {
             </button>
           </div>
         </div>
-      </nav>
+      </header>
 
       {/* Mobile Menu */}
       {mobileMenuOpen && (
@@ -125,8 +128,10 @@ export default function App() {
         </div>
       )}
 
-      {/* Hero Section */}
-      <section className="relative pt-32 pb-20 md:pt-40 md:pb-32 px-6 md:px-16 lg:px-24 overflow-hidden">
+      {/* Main Content */}
+      <main>
+        {/* Hero Section */}
+        <section className="relative pt-32 pb-20 md:pt-40 md:pb-32 px-6 md:px-16 lg:px-24 overflow-hidden">
         {/* Mobile Background Image */}
         <div 
           className="absolute inset-0 z-0 md:hidden"
@@ -142,11 +147,11 @@ export default function App() {
               <span className="w-2 h-2 rounded-full bg-red-600 animate-pulse"></span>
               <span className="text-xs font-semibold tracking-wider text-stone-600 uppercase">{t.open}</span>
             </div>
-            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-serif leading-[1.1] text-stone-900 mb-6 font-bold">
+            <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-serif leading-[1.1] text-stone-900 mb-6 font-bold">
               {t.heroTitle1}<br />
               <span className="text-red-900 italic">{t.heroTitle2}</span><br />
               {t.heroTitle3}
-            </h1>
+            </h2>
             <p className="text-stone-800 md:text-stone-600 font-medium md:font-normal text-base sm:text-lg mb-8 max-w-md leading-relaxed">
               {t.heroDesc}
             </p>
@@ -162,14 +167,46 @@ export default function App() {
           <div className="md:w-1/2 relative h-[500px] md:h-[600px] w-full hidden md:block">
             <img 
               src="https://i.ibb.co/mF84wvJy/azrou-city.png" 
-              alt="Azrou City Cafe" 
+              alt="Azrou City Restaurant and Café interior" 
               className="absolute top-0 right-0 w-[70%] h-[80%] object-cover rounded-[2rem] shadow-2xl z-10"
             />
             <img 
               src="https://images.unsplash.com/photo-1608198093002-ad4e005484ec?auto=format&fit=crop&q=80&w=800" 
-              alt="Pastries" 
+              alt="Fresh pastries at Azrou City Pâtisserie" 
               className="absolute bottom-0 left-0 w-[60%] h-[60%] object-cover rounded-[2rem] shadow-2xl border-8 border-stone-50 z-20"
             />
+          </div>
+        </div>
+      </section>
+
+      {/* Our Place */}
+      <section className="py-24 bg-stone-50 px-6 md:px-16 lg:px-24">
+        <div className="max-w-5xl mx-auto">
+          <div className="text-center mb-16">
+            <div className="inline-flex items-center gap-2 mb-6">
+              <span className="w-8 h-[1px] bg-red-900"></span>
+              <p className="text-xs font-bold tracking-[0.2em] text-red-900 uppercase">{t.ourPlaceTag}</p>
+              <span className="w-8 h-[1px] bg-red-900"></span>
+            </div>
+            <h2 className="text-4xl md:text-5xl font-serif text-stone-900 font-bold">
+              {t.ourPlaceTitle}
+            </h2>
+          </div>
+          <div className="flex flex-col gap-8 md:gap-12">
+            {[
+              "https://i.ibb.co/b5YpNcMr/Whats-App-Image-2026-04-08-at-ss.jpg",
+              "https://i.ibb.co/q3BmJVYS/zzzz.jpg",
+              "https://i.ibb.co/93mQBg81/Whats-App-Image-2026-04-08-at-z.jpg",
+              "https://i.ibb.co/qFPWfzHh/vfvf.jpg",
+              "https://i.ibb.co/rKyQx20Y/new-1.jpg",
+              "https://i.ibb.co/fgWtsbn/dsdsds.jpg",
+              "https://i.ibb.co/Lh6X10Pm/sr.jpg",
+              "https://i.ibb.co/S4sJXbC3/ssddsd.jpg"
+            ].map((img, idx) => (
+              <div key={idx} className="w-full aspect-[16/9] md:aspect-[21/9] rounded-[2rem] overflow-hidden shadow-xl group">
+                <img src={img} alt={`Azrou City Restaurant and Café interior view ${idx + 1}`} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+              </div>
+            ))}
           </div>
         </div>
       </section>
@@ -179,14 +216,14 @@ export default function App() {
         <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-12 md:gap-16 items-center">
           <div className="grid grid-cols-2 gap-4 md:gap-6 order-2 md:order-1">
             <div className="space-y-4 md:space-y-6">
-              <img src="https://i.ibb.co/wFX9NRFc/xx.jpg" alt="Gallery" className="w-full h-56 md:h-72 object-cover rounded-2xl shadow-md hover:scale-[1.02] transition-transform" />
-              <img src="https://i.ibb.co/DPPJmJKV/7lwia.jpg" alt="Gallery" className="w-full h-40 md:h-56 object-cover rounded-2xl shadow-md hover:scale-[1.02] transition-transform" />
-              <img src="https://i.ibb.co/nsVmc59b/cavv.jpg" alt="Gallery" className="w-full h-48 md:h-64 object-cover rounded-2xl shadow-md hover:scale-[1.02] transition-transform" />
+              <img src="https://i.ibb.co/wFX9NRFc/xx.jpg" alt="Fresh pastry at Azrou City Pâtisserie" className="w-full h-56 md:h-72 object-cover rounded-2xl shadow-md hover:scale-[1.02] transition-transform" />
+              <img src="https://i.ibb.co/DPPJmJKV/7lwia.jpg" alt="Traditional dish at our restaurant" className="w-full h-40 md:h-56 object-cover rounded-2xl shadow-md hover:scale-[1.02] transition-transform" />
+              <img src="https://i.ibb.co/nsVmc59b/cavv.jpg" alt="Fresh pastry at Azrou City Pâtisserie" className="w-full h-48 md:h-64 object-cover rounded-2xl shadow-md hover:scale-[1.02] transition-transform" />
             </div>
             <div className="space-y-4 md:space-y-6 pt-8 md:pt-12">
-              <img src="https://i.ibb.co/4nXvsRRS/tacos.jpg" alt="Gallery" className="w-full h-40 md:h-56 object-cover rounded-2xl shadow-md hover:scale-[1.02] transition-transform" />
-              <img src="https://i.ibb.co/d4yNRxNj/KIWI.jpg" alt="Gallery" className="w-full h-56 md:h-72 object-cover rounded-2xl shadow-md hover:scale-[1.02] transition-transform" />
-              <img src="https://i.ibb.co/6J8Js5n1/panini.jpg" alt="Gallery" className="w-full h-48 md:h-64 object-cover rounded-2xl shadow-md hover:scale-[1.02] transition-transform" />
+              <img src="https://i.ibb.co/4nXvsRRS/tacos.jpg" alt="Traditional dish at our restaurant" className="w-full h-40 md:h-56 object-cover rounded-2xl shadow-md hover:scale-[1.02] transition-transform" />
+              <img src="https://i.ibb.co/d4yNRxNj/KIWI.jpg" alt="Fresh drink at Azrou City Café" className="w-full h-56 md:h-72 object-cover rounded-2xl shadow-md hover:scale-[1.02] transition-transform" />
+              <img src="https://i.ibb.co/6J8Js5n1/panini.jpg" alt="Traditional dish at our restaurant" className="w-full h-48 md:h-64 object-cover rounded-2xl shadow-md hover:scale-[1.02] transition-transform" />
             </div>
           </div>
           <div className="space-y-8 order-1 md:order-2">
@@ -217,13 +254,13 @@ export default function App() {
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div className="group relative h-[400px] overflow-hidden rounded-2xl shadow-xl">
-              <img src="https://i.ibb.co/QFqX1CVx/another-ftor.jpg" alt="Breakfast 1" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" referrerPolicy="no-referrer" />
+              <img src="https://i.ibb.co/QFqX1CVx/another-ftor.jpg" alt="Traditional Moroccan Breakfast at Azrou City Café" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" referrerPolicy="no-referrer" />
             </div>
             <div className="group relative h-[400px] overflow-hidden rounded-2xl shadow-xl">
-              <img src="https://i.ibb.co/t99XKP5/ftiwr.png" alt="Breakfast 2" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" referrerPolicy="no-referrer" />
+              <img src="https://i.ibb.co/t99XKP5/ftiwr.png" alt="Fresh morning breakfast at Azrou City Restaurant" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" referrerPolicy="no-referrer" />
             </div>
             <div className="group relative h-[400px] overflow-hidden rounded-2xl shadow-xl">
-              <img src="https://i.ibb.co/wFjzgGWX/ftor.jpg" alt="Breakfast 3" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" referrerPolicy="no-referrer" />
+              <img src="https://i.ibb.co/wFjzgGWX/ftor.jpg" alt="Delicious breakfast spread at Azrou City Café" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" referrerPolicy="no-referrer" />
             </div>
           </div>
         </div>
@@ -243,12 +280,12 @@ export default function App() {
             {[
               { img: "https://i.ibb.co/DPBSTgz3/smm.jpg", title: t.sig1 },
               { img: "https://i.ibb.co/2YWGpDQ9/ccc.jpg", title: t.sig2 },
-              { img: "https://i.ibb.co/nssXt4MY/PIZZA.jpg", title: t.sig3 },
+              { img: "https://i.ibb.co/Xkxb4XXX/Gemini-Generated-Image-3drz9a3drz9a3drz.png", title: t.sig3 },
               { img: "https://i.ibb.co/PKNYgMc/nice.jpg", title: t.sig4 }
             ].map((item, i) => (
               <div key={i} className="group cursor-pointer">
                 <div className="overflow-hidden rounded-2xl shadow-md mb-4 aspect-[4/5]">
-                  <img src={item.img} alt={item.title} className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700" />
+                  <img src={item.img} alt={`${item.title} at Azrou City Restaurant and Pâtisserie`} className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700" />
                 </div>
                 <h3 className="text-lg font-serif font-semibold text-stone-900 group-hover:text-red-900 transition-colors">{item.title}</h3>
               </div>
@@ -350,12 +387,12 @@ export default function App() {
           <div className="relative h-[500px] w-full">
             <img 
               src="https://i.ibb.co/SXy5Dzqq/patisisi.png" 
-              alt="Restaurant Interior" 
+              alt="Azrou City Restaurant and Café interior" 
               className="absolute top-0 right-0 w-[80%] h-[70%] object-cover rounded-[2rem] shadow-xl z-0"
             />
             <img 
               src="https://i.ibb.co/t99XKP5/ftiwr.png" 
-              alt="Food" 
+              alt="Traditional dish at our restaurant" 
               className="absolute bottom-0 left-0 w-[60%] h-[50%] object-cover rounded-[2rem] shadow-2xl border-8 border-white z-10"
             />
           </div>
@@ -368,7 +405,7 @@ export default function App() {
           <div className="relative h-[600px] w-full hidden md:block">
             <img 
               src="https://images.unsplash.com/photo-1497935586351-b67a49e012bf?auto=format&fit=crop&q=80&w=800" 
-              alt="Coffee Pouring" 
+              alt="Freshly brewed premium coffee at Azrou City Café" 
               className="w-full h-full object-cover rounded-[2rem] shadow-xl"
             />
           </div>
@@ -501,6 +538,7 @@ export default function App() {
           </div>
         </div>
       </section>
+      </main>
 
       {/* Footer */}
       <footer id="contact" className="bg-stone-900 text-stone-300 pt-20 pb-10 px-6 md:px-16 lg:px-24">
@@ -508,7 +546,7 @@ export default function App() {
           <div className="grid md:grid-cols-4 gap-12 mb-16">
             <div className="md:col-span-2 space-y-6">
               <div className="flex items-center gap-2">
-                <img src="https://i.ibb.co/CGFVrpM/azrou-city-logo.jpg" alt="Azrou City Logo" className="h-12 w-auto rounded-md" />
+                <img src="https://i.ibb.co/CGFVrpM/azrou-city-logo.jpg" alt="Azrou City Restaurant, Pâtisserie & Café Logo" className="h-12 w-auto rounded-md" />
               </div>
               <p className="text-sm text-stone-400 max-w-sm leading-relaxed">
                 {t.footerDesc}
